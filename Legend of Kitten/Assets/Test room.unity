@@ -290,6 +290,8 @@ GameObject:
   - component: {fileID: 798106106}
   - component: {fileID: 798106111}
   - component: {fileID: 798106110}
+  - component: {fileID: 798106112}
+  - component: {fileID: 798106113}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -389,6 +391,32 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &798106112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 798106105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 651a327c5c3884d3f85be247f83b2719, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Items: []
+  StartupItems: []
+--- !u!114 &798106113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 798106105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d71e9f24acb6a4e02ac6e28bd930d662, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  States: []
+  StartupStates: []
 --- !u!1 &1671394606
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,8 +528,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 644de5ccddf0e4b5093e4d5d30203943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 
-  PickupMessage: perufq'rf
+  Name: Key 1
+  PickupMessage: Meow
   IsVisible: 1
   IsEnabled: 1
   CanCarry: 1

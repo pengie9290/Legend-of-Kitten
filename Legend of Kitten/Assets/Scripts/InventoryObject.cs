@@ -13,7 +13,9 @@ public class InventoryObject : MonoBehaviour {
 	public string StateToSet = "";
 	private GameObject ThePlayer;
 
-	void Start () {
+	void Start ()
+	{
+		InventoryManager.IsInInventory("ItemName");
 		if (IsVisible == false) {
 			//disable Mesh Renderer
 		}
@@ -30,6 +32,7 @@ public class InventoryObject : MonoBehaviour {
 				ThePlayer.SendMessage ("PickUp", Name);
 				IsCarried = true;
 				CanCarry = false;
+				print("PickedUp: " + InventoryManager.IsPlayerCarrying(Name));
 			}
 			if (PickupMessage.Length > 0) {
 				ThePlayer.SendMessage ("Report", PickupMessage);
