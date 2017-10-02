@@ -1,9 +1,4 @@
-﻿//Create functions for Pickup and SetState
-
-
-
-
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

@@ -96,5 +96,13 @@ public class InventoryManager : MonoBehaviour
 			}
 			return PlayerInventory.IsCarrying(ItemName);
 		}
-		
+
+		public static void DropObject(string ObjectToDrop)
+		{
+			print("Dropped Object");
+			if (PlayerInventory != null)
+			{
+				PlayerInventory.Drop(ObjectToDrop);
+			}
+		}
 	}

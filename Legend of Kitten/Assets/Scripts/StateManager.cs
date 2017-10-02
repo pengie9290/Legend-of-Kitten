@@ -46,8 +46,15 @@ public class StateManager : MonoBehaviour
 
 		public void ClearState(string StateName)
 		{
-			States.Remove(StateName.ToLower());
-			ReportState();
+			if (States.Contains(StateName.ToLower()))
+			{
+				States.Remove(StateName.ToLower());
+				ReportState();
+			}
+			else
+			{
+				print("No Existing State: " + StateName);
+			}
 		}
 
 		public string ReportState()

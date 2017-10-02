@@ -1,0 +1,9 @@
+{
+"TOTAL_MEMORY": 268435456,
+"dataUrl": "Legend of Kitten test.data.unityweb",
+"asmCodeUrl": "Legend of Kitten test.asm.code.unityweb",
+"asmMemoryUrl": "Legend of Kitten test.asm.memory.unityweb",
+"asmFrameworkUrl": "Legend of Kitten test.asm.framework.unityweb",
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20"
+}

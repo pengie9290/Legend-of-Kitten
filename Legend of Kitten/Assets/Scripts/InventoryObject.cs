@@ -11,7 +11,7 @@ public class InventoryObject : MonoBehaviour {
 	public bool IsCarried = false;
 	public bool IsExpendable = true;
 	public string StateToSet = "";
-	private GameObject ThePlayer;
+	private GameObject _thePlayer;
 
 	void Start ()
 	{
@@ -19,7 +19,7 @@ public class InventoryObject : MonoBehaviour {
 		if (IsVisible == false) {
 			//disable Mesh Renderer
 		}
-		ThePlayer = GameObject.FindGameObjectWithTag ("Player");
+		_thePlayer = GameObject.FindGameObjectWithTag ("Player");
 	}
 	
 	void Update () {
@@ -27,18 +27,18 @@ public class InventoryObject : MonoBehaviour {
 	}
 
 	public void OnCollisionEnter (Collision collision){
-		if (ThePlayer != null && collision.gameObject == ThePlayer) {
+		if (_thePlayer != null && collision.gameObject == _thePlayer) {
 			if (CanCarry == true) {
-				ThePlayer.SendMessage ("PickUp", Name);
+				_thePlayer.SendMessage ("PickUp", Name);
 				IsCarried = true;
 				CanCarry = false;
 				print("PickedUp: " + InventoryManager.IsPlayerCarrying(Name));
 			}
 			if (PickupMessage.Length > 0) {
-				ThePlayer.SendMessage ("Report", PickupMessage);
+				_thePlayer.SendMessage ("Report", PickupMessage);
 			}
 			if (StateToSet.Length > 0) {
-				ThePlayer.SendMessage ("SetState", StateToSet);
+				_thePlayer.SendMessage ("SetState", StateToSet);
 			}
 			if (IsExpendable == true) {
 				gameObject.SetActive (false);
