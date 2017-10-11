@@ -15,7 +15,60 @@ public class DoorControl : MonoBehaviour
 	public bool DestroyKeys = true;
 	public List<string> KeysToDestroy;
 	public List<string> KeysToPreserve;
+	public string ActivationMessage;
+	public string DenialMessage;
+	public bool NotifyUserOfDenial = true;
+	
+//	public List<string> ActivationMessages;
+//	public List<string> DenialMessages;
 
+//	void ReportActivation()
+//	{
+//		if (ActivationMessages.Count < 1)
+//		{
+//			print("Door opens");
+//			MessageDisplay.Show("DoorOpens");
+//		}
+//		else
+//		{
+//			
+//		}
+//	}
+
+	void ReportActivation()
+	{
+		var DefaultMessage = "Door Opens";
+		if (ActivationMessage.Length < 1)
+		{
+			print(DefaultMessage);
+			MessageDisplay.Show(DefaultMessage);
+		}
+		else
+		{
+			print(ActivationMessage);
+			MessageDisplay.Show(ActivationMessage);
+		}
+	}
+	
+	void ReportDenial()
+	{
+		var DefaultMessage = "Door is Locked";
+		if (!NotifyUserOfDenial)
+		{
+			return;
+		}
+		if (DenialMessage.Length < 1)
+		{
+			print(DefaultMessage);
+			MessageDisplay.Show(DefaultMessage);
+		}
+		else
+		{
+			print(DenialMessage);
+			MessageDisplay.Show(DenialMessage);
+		}
+	}
+	
 	void Start () {
 		_thePlayer = GameObject.FindGameObjectWithTag ("Player");
 		if (KeyLocation == null)
@@ -35,14 +88,18 @@ public class DoorControl : MonoBehaviour
 		}
 		if (Input.GetButton(TriggerButton))
 		{
-			if (HasNeededKeys())
+			if (IsInRange())
 			{
-				if (IsInRange())
+				if (HasNeededKeys())
 				{
 					print(gameObject.name + " Is Open");
 					IsOpen = true;
 					OpenDoor();
 					_destroyKeys();
+				}
+				else
+				{
+					ReportDenial();
 				}
 			}
 		}		
@@ -83,6 +140,7 @@ public class DoorControl : MonoBehaviour
 	{
 		gameObject.SetActive(false);
 		IsOpen = true;
+		ReportActivation();
 	}
 
 	private void _destroyKeys()

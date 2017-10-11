@@ -1112,13 +1112,15 @@ extern const int32_t g_FieldOffsetTable1700[1];
 extern const int32_t g_FieldOffsetTable1705[4];
 extern const int32_t g_FieldOffsetTable1706[1];
 extern const int32_t g_FieldOffsetTable1710[3];
-extern const int32_t g_FieldOffsetTable1711[10];
-extern const int32_t g_FieldOffsetTable1713[4];
+extern const int32_t g_FieldOffsetTable1711[13];
+extern const int32_t g_FieldOffsetTable1712[2];
+extern const int32_t g_FieldOffsetTable1713[5];
 extern const int32_t g_FieldOffsetTable1714[9];
 extern const int32_t g_FieldOffsetTable1715[3];
-extern const int32_t g_FieldOffsetTable1716[3];
+extern const int32_t g_FieldOffsetTable1716[6];
+extern const int32_t g_FieldOffsetTable1717[3];
 
-extern const int32_t* g_FieldOffsetTable[1717] = 
+extern const int32_t* g_FieldOffsetTable[1718] = 
 {
 	NULL,
 	NULL,
@@ -2832,11 +2834,12 @@ extern const int32_t* g_FieldOffsetTable[1717] =
 	NULL,
 	g_FieldOffsetTable1710,
 	g_FieldOffsetTable1711,
-	NULL,
+	g_FieldOffsetTable1712,
 	g_FieldOffsetTable1713,
 	g_FieldOffsetTable1714,
 	g_FieldOffsetTable1715,
 	g_FieldOffsetTable1716,
+	g_FieldOffsetTable1717,
 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize0;
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize1;
@@ -4555,7 +4558,8 @@ extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize1713;
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize1714;
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize1715;
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize1716;
-extern const Il2CppTypeDefinitionSizes* g_Il2CppTypeDefinitionSizesTable[1717] = 
+extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize1717;
+extern const Il2CppTypeDefinitionSizes* g_Il2CppTypeDefinitionSizesTable[1718] = 
 {
 	(&g_typeDefinitionSize0),
 	(&g_typeDefinitionSize1),
@@ -6274,4 +6278,5 @@ extern const Il2CppTypeDefinitionSizes* g_Il2CppTypeDefinitionSizesTable[1717] =
 	(&g_typeDefinitionSize1714),
 	(&g_typeDefinitionSize1715),
 	(&g_typeDefinitionSize1716),
+	(&g_typeDefinitionSize1717),
 };

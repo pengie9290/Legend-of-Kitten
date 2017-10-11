@@ -6,6 +6,7 @@
 <type fullname="InventoryManager" preserve="all"/>
 <type fullname="InventoryObject" preserve="all"/>
 <type fullname="KittenPlayerControl" preserve="all"/>
+<type fullname="MessageDisplay" preserve="all"/>
 <type fullname="StateManager" preserve="all"/>
 </assembly>
 <assembly fullname="UnityEngine.UI">

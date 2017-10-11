@@ -9,10 +9,12 @@ public class InventoryManager : MonoBehaviour
 		public List<String> StartupItems;
 		public static List<InventoryObject> MasterInventoryObjects = new List<InventoryObject>();
 		public static InventoryManager PlayerInventory;
+		private GameObject InventoryDisplay;
 	
 	
 		void Start ()
 		{
+			InventoryDisplay = GameObject.FindGameObjectWithTag("InventoryDisplay");
 			if (PlayerInventory != null)
 			{
 				print("WTI");
@@ -63,6 +65,10 @@ public class InventoryManager : MonoBehaviour
 				TheMessage += S;
 			}
 			print("Inventory: " + TheMessage);
+			if (InventoryDisplay != null)
+			{
+				InventoryDisplay.SendMessage("ShowMessage", TheMessage);
+			}
 			return TheMessage;
 		}
 

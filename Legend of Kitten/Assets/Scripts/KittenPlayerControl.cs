@@ -57,5 +57,6 @@ public class KittenPlayerControl : MonoBehaviour {
 
 	public void Report (string Message){
 		print (Message);
+		MessageDisplay.Show(Message);
 	}
 }
