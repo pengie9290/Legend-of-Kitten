@@ -5,10 +5,13 @@ using UnityEngine;
 public class KittenPlayerControl : MonoBehaviour {
 	public float MaxSpeed = 1f;
 	public int Direction = 0;
+	public int OldDirection = 0;
 	Rigidbody rb;
+	private Animator _kittenAnimator;
 
 	void Start () {
 		rb = GetComponent <Rigidbody> ();
+		_kittenAnimator = gameObject.GetComponentInChildren<Animator>();
 	}
 	
 	void Update () {
@@ -16,6 +19,20 @@ public class KittenPlayerControl : MonoBehaviour {
 		var vaxis = Input.GetAxis ("Vertical");
 		transform.Translate (haxis * MaxSpeed * Time.deltaTime, vaxis * MaxSpeed * Time.deltaTime, 0);
 		Direction = DirectionDetection (haxis, vaxis);
+		if (Direction != OldDirection)
+		{
+			if (_kittenAnimator != null)
+			{
+				_kittenAnimator.SetBool("IsIdle", CalculateIdle(Direction));
+				_kittenAnimator.SetInteger("Direction", CalculateAnimationDirection(Direction));
+				_kittenAnimator.SetTrigger("ChangeState");
+			}
+			
+			
+			
+			
+			OldDirection = Direction;
+		}
 	}
 
 	int DirectionDetection (float haxis, float vaxis){
@@ -45,6 +62,23 @@ public class KittenPlayerControl : MonoBehaviour {
 			}
 		}
 	}
+
+	private int[] AnimationDirection = new int[] {0, 2, 3, 0, 0, 0, 1, 2, 2};
+
+	private int CalculateAnimationDirection(int direction)
+	{
+		if (direction > AnimationDirection.Length || direction < 0)
+		{
+			return 0;
+		}
+		return AnimationDirection[direction];
+	}
+
+	private bool CalculateIdle(int direction)
+	{
+		return direction == 0;
+	}
+	
 	//0 = still
 	//1 = up-right
 	//2 = right

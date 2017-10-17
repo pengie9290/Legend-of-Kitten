@@ -18,22 +18,9 @@ public class DoorControl : MonoBehaviour
 	public string ActivationMessage;
 	public string DenialMessage;
 	public bool NotifyUserOfDenial = true;
+	public List<GameObject> ObjectsToActivate;
+	public List<GameObject> ObjectsToDeactivate;
 	
-//	public List<string> ActivationMessages;
-//	public List<string> DenialMessages;
-
-//	void ReportActivation()
-//	{
-//		if (ActivationMessages.Count < 1)
-//		{
-//			print("Door opens");
-//			MessageDisplay.Show("DoorOpens");
-//		}
-//		else
-//		{
-//			
-//		}
-//	}
 
 	void ReportActivation()
 	{
@@ -136,10 +123,23 @@ public class DoorControl : MonoBehaviour
 		}
 	}
 
+	void ApplyConsequences()
+	{
+		foreach (var obj in ObjectsToActivate)
+		{
+			obj.SetActive(true);
+		}
+		foreach (var obj in ObjectsToDeactivate)
+		{
+			obj.SetActive(false);
+		}
+	}
+	
 	public void OpenDoor()
 	{
 		gameObject.SetActive(false);
 		IsOpen = true;
+		ApplyConsequences();
 		ReportActivation();
 	}
 

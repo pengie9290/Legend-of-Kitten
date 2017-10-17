@@ -16,6 +16,7 @@ public class CatsEyeControl : MonoBehaviour
 {
 	private Renderer _render;
 	private GameObject _thePlayer;
+	public List<GameObject> ReachableObjects;
 	public float Transparency = .5f;
 	
 	void Start () {
@@ -29,22 +30,48 @@ public class CatsEyeControl : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject == _thePlayer)
+		if (ReachableObjects.Count > 0)
 		{
-			if (_render != null)
+			if (ReachableObjects.Contains(other.gameObject))
 			{
-				_render.material.ChangeAlpha(Transparency);
+				if (_render != null)
+				{
+					_render.material.ChangeAlpha(Transparency);
+				}
+			}
+		}
+		else
+		{
+			if (other.gameObject == _thePlayer)
+			{
+				if (_render != null)
+				{
+					_render.material.ChangeAlpha(Transparency);
+				}
 			}
 		}
 	}
 	
 	private void OnTriggerExit(Collider other)
 	{
-		if (other.gameObject == _thePlayer)
+		if (ReachableObjects.Count > 0)
 		{
-			if (_render != null)
+			if (ReachableObjects.Contains(other.gameObject))
 			{
-				_render.material.ChangeAlpha(1f);
+				if (_render != null)
+				{
+					_render.material.ChangeAlpha(1f);
+				}
+			}
+		}
+		else
+		{
+			if (other.gameObject == _thePlayer)
+			{
+				if (_render != null)
+				{
+					_render.material.ChangeAlpha(1f);
+				}
 			}
 		}
 	}
