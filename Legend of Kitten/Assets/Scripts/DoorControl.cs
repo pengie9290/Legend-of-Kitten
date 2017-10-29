@@ -9,6 +9,7 @@ public class DoorControl : MonoBehaviour
 	public List<string> NeededKeys;
 	public string TriggerButton = "Fire1";
 	private GameObject _thePlayer;
+	private GameObject _audioManager;
 	public float TriggerRange = 1f;
 	public Transform KeyLocation;
 	public bool UseZCoordinate = false;
@@ -20,11 +21,20 @@ public class DoorControl : MonoBehaviour
 	public bool NotifyUserOfDenial = true;
 	public List<GameObject> ObjectsToActivate;
 	public List<GameObject> ObjectsToDeactivate;
-	
+	public bool PlayDoorSFX = true;
+	public bool PlayWineRackSFX = false;
 
 	void ReportActivation()
 	{
 		var DefaultMessage = "Door Opens";
+		if (PlayDoorSFX)
+		{
+			_audioManager.SendMessage("SayUnlock");
+		}
+		if (!PlayDoorSFX && PlayWineRackSFX)
+		{
+			_audioManager.SendMessage("SayWineRack");
+		}
 		if (ActivationMessage.Length < 1)
 		{
 			print(DefaultMessage);
@@ -40,6 +50,10 @@ public class DoorControl : MonoBehaviour
 	void ReportDenial()
 	{
 		var DefaultMessage = "Door is Locked";
+		if (PlayDoorSFX)
+		{
+			_audioManager.SendMessage("SayLocked");
+		}
 		if (!NotifyUserOfDenial)
 		{
 			return;
@@ -56,7 +70,9 @@ public class DoorControl : MonoBehaviour
 		}
 	}
 	
-	void Start () {
+	void Start ()
+	{
+		_audioManager = GameObject.FindGameObjectWithTag("AudioManager");
 		_thePlayer = GameObject.FindGameObjectWithTag ("Player");
 		if (KeyLocation == null)
 		{

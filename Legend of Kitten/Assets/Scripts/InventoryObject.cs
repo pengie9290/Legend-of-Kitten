@@ -12,6 +12,8 @@ public class InventoryObject : MonoBehaviour {
 	public bool IsExpendable = true;
 	public string StateToSet = "";
 	private GameObject _thePlayer;
+	public bool IsAKey = true;
+	private GameObject _audioManager;
 
 	void Start ()
 	{
@@ -20,6 +22,7 @@ public class InventoryObject : MonoBehaviour {
 			//disable Mesh Renderer
 		}
 		_thePlayer = GameObject.FindGameObjectWithTag ("Player");
+		_audioManager = GameObject.FindGameObjectWithTag("AudioManager");
 	}
 	
 	void Update () {
@@ -33,6 +36,10 @@ public class InventoryObject : MonoBehaviour {
 				IsCarried = true;
 				CanCarry = false;
 				print("PickedUp: " + InventoryManager.IsPlayerCarrying(Name));
+				if (IsAKey)
+				{
+					_audioManager.SendMessage("SayGetKey");
+				}
 			}
 			if (PickupMessage.Length > 0) {
 				_thePlayer.SendMessage ("Report", PickupMessage);
