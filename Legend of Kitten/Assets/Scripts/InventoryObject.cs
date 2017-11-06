@@ -14,6 +14,8 @@ public class InventoryObject : MonoBehaviour {
 	private GameObject _thePlayer;
 	public bool IsAKey = true;
 	private GameObject _audioManager;
+	public List<GameObject> ItemsToActivate;
+	public List<GameObject> ItemsToDeactivate;
 
 	void Start ()
 	{
@@ -50,6 +52,19 @@ public class InventoryObject : MonoBehaviour {
 			if (IsExpendable == true) {
 				gameObject.SetActive (false);
 			}
+			Activate();
+		}
+	}
+
+	public void Activate()
+	{
+		foreach (var Item in ItemsToDeactivate)
+		{
+			Item.SetActive(false);
+		}
+		foreach (var Item in ItemsToActivate)
+		{
+			Item.SetActive(true);
 		}
 	}
 }

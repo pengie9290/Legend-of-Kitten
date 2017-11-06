@@ -104,6 +104,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 73843688b51256aed059f049c540bca8 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformChild
 528ea1fd7c01796fc60c4e2f172ea229 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
 608a389a6e20b83dd55747f5554deed5 Assembly-CSharp.dll:.StateManager
+8dfc56fbd747e99ab818fb38a44bbd66 Assembly-CSharp.dll:.MEOW
 d32fd859bc5bc0750107aa1f54cb463f Assembly-CSharp.dll:.InventoryDisplay
 bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInput
@@ -137,6 +138,5 @@ bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.Audi
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.SpatialMappingRenderer
 e20c62522ed91884eed3c0e7cb522e57 Assembly-CSharp.dll:.InventoryManager
-885a671d0ba094fdb02b63e46a95bcd4 Assembly-CSharp.dll:.InventoryObject
+78d222639d35fa62b1d666b9e6fd2398 Assembly-CSharp.dll:.InventoryObject
 d3aeba59ff7ce1433913b64836876df5 Assembly-CSharp.dll:.DoorControl
-8dfc56fbd747e99ab818fb38a44bbd66 Assembly-CSharp.dll:.MEOW
